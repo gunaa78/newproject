@@ -4,7 +4,10 @@ function Footer(){
         <div className="pt-40  ">
         <div className=" grid grid-cols-1 md:grid-cols-4  w-full z-50 bg-white/20 backdrop-blur-lg px-4 gap-8 py-6 ">
             <div className="pt-10">
-            <h3 className="text-cyan-600 font-bold  text-lg lg:text-xl ">Hikoo <span className="text-black">Technology</span> </h3>
+              <div className="flex text-center items-center gap-2">
+            <h3 className="text-cyan-600 font-bold  text-lg lg:text-xl ">Hikoo </h3>
+            <p className="text-lg lg:text-xl font-bold">Technology</p>
+            </div>
             <p className="text-sm lg:text-base  ">Simplicity Solves Complexity</p>
             {/* <p className="w-[300px]">We deliver innovative software solutions that help
 businesses grow through technology.</p> */}

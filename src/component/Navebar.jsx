@@ -79,7 +79,7 @@ function Navebar(){
 </button>
 
 {open &&(
-     <div className="lg:hidden mt-4 flex flex-col gap-8 absolute top-[80px] w-screen left-0 overflow-y-auto  h-[calc(100vh-100px)] text-center bg-black/10 backdrop-blur-2xl   z-50">
+     <div className="lg:hidden mt-4 flex flex-col gap-8 absolute top-[80px] w-screen left-0 overflow-y-auto  h-[calc(100vh-100px)] text-center bg-black/70 backdrop-blur-xl   z-50">
           <p 
            onClick={() => {
             navigate("/")
@@ -88,39 +88,39 @@ function Navebar(){
            
            }
            
-  className="cursor-pointer font-semibold">Home</p>
+  className="cursor-pointer font-semibold text-white">Home</p>
           <p 
           onClick={() => {
             navigate("/About")
             setopen(false)
         }}
-      className="cursor-pointer font-semibold " >About</p>
+      className="cursor-pointer font-semibold text-white" >About</p>
           <p
            onClick={()=> {
             navigate("/Service")
             setopen(false)
         }}
-         className="cursor-pointer font-semibold " 
+         className="cursor-pointer font-semibold text-white" 
           >Services</p>
           <p
         onClick={()=> {
             navigate("/Career")
             setopen(false)
         }}
-        className="cursor-pointer font-semibold "
+        className="cursor-pointer font-semibold text-white"
         >Career</p>
         <p onClick={()=>  {
         navigate("/Internship")
         setopen(false)
     }}
-        className="cursor-pointer  font-semibold  "
+        className="cursor-pointer  font-semibold  text-white"
         >internship</p>
           <p 
           onClick={()=>  {
         navigate("/Contact")
         setopen(false)
     }}
-    className="cursor-pointer font-semibold"
+    className="cursor-pointer font-semibold text-white"
           >Contact</p>
            <p 
          onClick={toggleTheme}
