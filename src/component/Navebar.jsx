@@ -1,8 +1,8 @@
 import { useState} from "react";
-import {menu ,X } from "lucide-react"
+
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
-import { motion } from "framer-motion";
+
 function Navebar(){
 //     const handleclick = () => {
 //   document.getElementById("find").scrollIntoView({

@@ -1,5 +1,5 @@
 import Services from "../component/Services";
-import Process from "../component/Process";
+
 import { motion } from "framer-motion";
 function Service(){
     return(
