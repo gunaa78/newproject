@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 function Internship(){
     const [Showform, setShowform]= useState(false)
     return(
         <div>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl  font-bold pt-40 md:pt-60  text-cyan-600  " >BUILD YOUR FUTURE</h3>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl  font-bold pt-40 md:pt-60  text-cyan-600  " >Build Your Future</h3>
             <p className="text-sm sm:text-base lg:text-lg pt-10">Gain real-world experience, work on industry projects, and develop your technical skills with our internship programs.</p>
 
 
@@ -11,8 +12,15 @@ function Internship(){
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
 
-  {/* React.js Developer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+  
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       React.js Developer
     </h3>
@@ -35,11 +43,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition ">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* Frontend Developer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold text-cyan-600">
       Frontend Developer
     </h3>
@@ -61,11 +76,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* Backend Developer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base p-6 shadow-lg   hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       Backend Developer
     </h3>
@@ -87,11 +109,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* Full Stack Developer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+
+  <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       Full Stack Developer
     </h3>
@@ -113,11 +142,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* UI/UX Designer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       UI/UX Designer
     </h3>
@@ -139,11 +175,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* QA Engineer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       QA Engineer
     </h3>
@@ -165,11 +208,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* Python Developer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       Python Developer
     </h3>
@@ -191,11 +241,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
-
-  {/* Node.js Developer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+      
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       Node.js Developer
     </h3>
@@ -217,18 +274,25 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* Cloud & DevOps Engineer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       Cloud & DevOps Engineer
     </h3>
 
     <p className="mt-4  ">
       AWS • Docker • CI/CD
-    </p>
+      </p>
 
     <p className="mt-4 ">
       Duration: 3–6 Months
@@ -243,11 +307,18 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 
-  {/* AI / ML Engineer */}
-  <div className=" text-sm md:text-base rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:-translate-y-2 transition-all duration-300">
+ 
+  <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className=" text-sm md:text-base  p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
     <h3 className="text-lg md:text-xl  font-semibold  text-cyan-600">
       AI / ML Engineer
     </h3>
@@ -269,7 +340,7 @@ function Internship(){
     className="mt-6 w-full py-3 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-700 transition">
       Apply Now
     </button>
-  </div>
+  </motion.div>
 
 </div>
  {Showform && (
@@ -301,6 +372,9 @@ function Internship(){
                 type="text"
                 placeholder="Full Name"
                 className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 text-white outline-none"
+                 onInput={(e) => {
+    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, "");
+  }}
               />
 
               <input
@@ -313,10 +387,14 @@ function Internship(){
                 type="tel"
                 placeholder="Phone Number"
                 className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 text-white outline-none "
+
+                 onInput={(e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+  }}
               />
 
               <select className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 text-white outline-none " >
-               <option className="text-black">Select Domain</option>
+               <option className="text-black">Select a Domain</option>
                <option className="text-black">React.js Developer</option>
           <option className="text-black">Frontend Developer</option>
           <option className="text-black">Backend Developer</option>
@@ -369,8 +447,15 @@ function Internship(){
 
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
 
-    {/* Hands-On Experience */}
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+   
+    <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }} className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl  font-semibold text-cyan-600">
         Hands-On Experience
       </h3>
@@ -378,10 +463,17 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Work on real-world projects and gain practical experience.
       </p>
-    </div>
+    </motion.div>
 
-    {/* Expert Mentorship */}
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+   
+    <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className=" font-semibold text-cyan-600 text-lg md:text-xl">
         Expert Mentorship
       </h3>
@@ -389,10 +481,17 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Learn from experienced developers and industry professionals.
       </p>
-    </div>
+    </motion.div>
 
-    {/* Modern Technologies */}
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+   
+    <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6     shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
         Modern Technologies
       </h3>
@@ -400,10 +499,17 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Build skills using current tools, frameworks, and technologies.
       </p>
-    </div>
+    </motion.div>
 
-    {/* Team Experience */}
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+   
+    <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
         Team Experience
       </h3>
@@ -411,10 +517,18 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Collaborate with a professional team and learn industry workflows.
       </p>
-    </div>
+    </motion.div>
 
-    {/* Internship Certificate */}
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+  
+    <motion.div  whileHover={{ y: -10 }}  
+     transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
         Internship Certificate
       </h3>
@@ -422,10 +536,17 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Receive a certificate after successfully completing the internship.
       </p>
-    </div>
+    </motion.div>
 
-    {/* Career Growth */}
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+   
+    <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
         Career Growth
       </h3>
@@ -433,7 +554,7 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Build your skills and explore potential career opportunities with Hikoo Technology.
       </p>
-    </div>
+    </motion.div>
 
   </div>
 
@@ -449,8 +570,15 @@ function Internship(){
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
 
    
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white font-bold text-lg">
+    <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
+      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12  rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
         01
       </span>
 
@@ -461,12 +589,19 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Work on real-world projects.
       </p>
-    </div>
+    </motion.div>
 
 
     
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white font-bold text-lg">
+    <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
+      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
         02
       </span>
 
@@ -477,12 +612,19 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Learn from experienced professionals.
       </p>
-    </div>
+    </motion.div>
 
 
   
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white font-bold text-lg">
+    <motion.div  whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
+      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
         03
       </span>
 
@@ -493,12 +635,19 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Improve your technical and professional skills.
       </p>
-    </div>
+    </motion.div>
 
 
   
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white font-bold text-lg">
+    <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6     shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
+      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
         04
       </span>
 
@@ -509,12 +658,19 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Receive a certificate after completion.
       </p>
-    </div>
+    </motion.div>
 
 
   
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white font-bold ">
+    <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
+      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl ">
         05
       </span>
 
@@ -525,12 +681,19 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Get guidance for your next career step.
       </p>
-    </div>
+    </motion.div>
 
 
   
-    <div className="p-6 rounded-2xl bg-white/10 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white font-bold text-lg">
+    <motion.div  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
+      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
         06
       </span>
 
@@ -541,7 +704,7 @@ function Internship(){
       <p className="mt-3 text-sm md:text-base">
         Experience working in a real IT environment.
       </p>
-    </div>
+    </motion.div>
 
   </div>
 

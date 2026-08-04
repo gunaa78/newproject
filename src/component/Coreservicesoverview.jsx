@@ -24,17 +24,24 @@ function Coreservicesoverview(){
           >
              <motion.div
   whileHover={{ y: -10 }}
-  transition={{ duration: 0.3 }}
-   className="p-8 rounded-2xl bg-white/10 hover:shadow-xl duration-300 space-y-4" 
+  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}
+   className="p-8  space-y-4 shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl" 
   > 
             
-            <Icon className=" text-lg md:text-2xl text-black mb-5" />
+            <Icon className=" text-lg md:text-2xl mb-5" />
 
             <h3 className="text-lg md:text-xl  mb-3 text-cyan-600 font-semibold">
               {service.title}
             </h3>
 
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className=" text-sm md:text-base">
               {service.description}
             </p>
             </motion.div>
@@ -43,9 +50,12 @@ function Coreservicesoverview(){
          
         );
       })}
+     
+    </div>
+   
+     
     </div>
     
-    </div>
      
   );
 }

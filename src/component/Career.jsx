@@ -1,6 +1,7 @@
 import Careerdata from "../component/Careerdata"
 import Jobopening from "../component/Jobopening"
 import { useState } from "react";
+import { motion } from "framer-motion";
 function Career(){
   const [showPopup, setShowPopup] = useState(false);
     return(
@@ -11,14 +12,21 @@ function Career(){
                 Join Our Team
             </h1>
             <p className="text-sm sm:text-base lg:text-lg">Build Your Career with Hikoo Technology</p>
-            <p className="text-xs sm:text-sm lg:text-base  ">We're looking for talented professionals who are passionate about technology, innovation, and creating impactful digital solutions. Join our team and grow your career with us.</p>
+            <p className="text-sm sm:text-base lg:text-base  ">We're looking for talented professionals who are passionate about technology, innovation, and creating impactful digital solutions. Join our team and grow your career with us.</p>
      
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 " >
             {Careerdata.map((career ,index) =>(
                 <div key={index}>
-                    <div className="   bg-white/10 rounded-xl shadow-md px-4 py-4 hover:shadow-xl space-y-4  text-center   justify-center">
+                    <motion.div   whileHover={{ y: -10 }}   transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }} className="px-4 py-4 space-y-4  text-center   justify-center shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
 
                <p className=" flex justify-center ">{career.icon}</p>
               
@@ -28,7 +36,7 @@ function Career(){
               <p className=" w-[250px] md:w-[300px]  mx-auto text-sm md:text-base">
                 {career.description}
               </p>
-              </div>
+              </motion.div>
                     </div>
 
             ))}
@@ -38,18 +46,29 @@ function Career(){
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 ">
            
             {Jobopening.map((job ,index) =>(
-                <div key={index} className=" bg-white/10 rounded-xl shadow-md px-4 py-4 hover:shadow-xl space-y-4 text-sm md:text-base " >
+                <motion.div key={index}  whileHover={{ y: -10 }}  transition={{
+    duration: 0.8,         
+    hover: { duration: 0.3 }
+  }}
+   initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+ 
+  viewport={{ once: true }}  className="  px-4 py-4 space-y-4 text-sm md:text-base   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl" >
                     <h3  className=" text-lg md:text-xl  text-cyan-600  font-semibold ">
                         {job.title}
                     </h3>
                     <p>📍{job.location}</p>
                     <p>💼{job.type}</p>
                     <p>⏳{job.experience}</p>
-                    <div className=" flex flex-wrap gap-4 lg:gap-6  ">
+                    <div className=" flex   gap-2 lg:gap-6  ">
                         <p className=" text-cyan-600 font-semibold">skills:</p>
                    {job.skills.map((skill, index) =>(
                         <p key={index} className="text-sm md:text-base ">
                            {skill}
+                           {index !== job.skills.length - 1 && (
+                            <span className="mx-2 text-gray-400">|</span>
+      )}
+    
                         </p>
 
                    ))}
@@ -60,7 +79,7 @@ function Career(){
                     <button  onClick={()=>setShowPopup(true)}
                     className="bg-cyan-600 text-white text-center rounded-lg px-2 py-2 font-bold  text-sm md:text-base  ">{job.apply}</button>
                     </div>
-                    </div>
+                    </motion.div>
 
             ))}
         </div>

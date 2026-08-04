@@ -2,18 +2,18 @@ import { FaLinkedin, FaInstagram } from "react-icons/fa";
 function Footer(){
     return(
         <div className="pt-40  ">
-        <div className=" grid grid-cols-1 md:grid-cols-4  w-full z-50 bg-black/5 px-4 gap-8 py-6 ">
+        <div className=" grid grid-cols-1 md:grid-cols-4  w-full z-50 bg-white/20 backdrop-blur-lg px-4 gap-8 py-6 ">
             <div className="pt-10">
             <h3 className="text-cyan-600 font-bold  text-lg lg:text-xl ">Hikoo <span className="text-black">Technology</span> </h3>
-            <p className="text-xs lg:text-base  ">Simplicity Solves Complexity</p>
+            <p className="text-sm lg:text-base  ">Simplicity Solves Complexity</p>
             {/* <p className="w-[300px]">We deliver innovative software solutions that help
 businesses grow through technology.</p> */}
 </div>
-<div className="pt-10">
-<h3 className="text-sm sm:text-base lg:text-lg  ">Quick Links</h3>
+<div className="pt-0 lg:pt-10">
+<h3 className="text-base lg:text-lg  ">Quick Links</h3>
 
 
-  <ul className="space-y-2 py-4 text-xs sm:text-sm lg:text-base list-disc list-inside  ">
+  <ul className="space-y-2 py-4 text-sm lg:text-base list-disc list-inside  ">
     <li>Home</li>
     <li>About</li>
     <li>Services</li>
@@ -22,10 +22,10 @@ businesses grow through technology.</p> */}
   </ul>
   </div>
 
-<div className="pt-10">
-  <h3 className="text-sm sm:text-base lg:text-lg">Services</h3>
+<div className="pt-0 lg:pt-10">
+  <h3 className="text-base lg:text-lg">Services</h3>
 
-  <ul className="space-y-2 py-4 text-xs sm:text-sm lg:text-base  list-disc list-inside ">
+  <ul className="space-y-2 py-4 text-sm lg:text-base  list-disc list-inside ">
     <li>Web Development</li>
     <li>Mobile App Development</li>
     <li>UI/UX Design</li>
@@ -34,16 +34,16 @@ businesses grow through technology.</p> */}
   </ul>
 
 </div>
-<div className="pt-10 ">
-  <h3 className="text-sm sm:text-base lg:text-lg  ">Follow Us</h3>
-<ul className="space-y-2  py-4 text-xs sm:text-sm lg:text-base     ">
+<div className="pt-0 lg:pt-10 ">
+  <h3 className="text-base lg:text-lg  ">Follow Us</h3>
+<ul className="space-y-2  py-4 text-sm lg:text-base     ">
     <div className="flex items-center gap-2">
-    <FaLinkedin className="text-black text-lg" />
-<li>LinkedIn</li>
+    <FaLinkedin className=" text-lg" />
+<li className="text-sm lg:text-base">LinkedIn</li>
 </div>
 <div className="flex items-center gap-2">
-    <FaInstagram className="text-black text-lg" />
-<li>Instagram</li>
+    <FaInstagram className=" text-lg" />
+<li className="text-sm lg:text-base">Instagram</li>
 </div>
 </ul>
 

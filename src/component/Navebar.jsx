@@ -1,6 +1,8 @@
 import { useState} from "react";
 import {menu ,X } from "lucide-react"
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
+import { motion } from "framer-motion";
 function Navebar(){
 //     const handleclick = () => {
 //   document.getElementById("find").scrollIntoView({
@@ -9,16 +11,20 @@ function Navebar(){
 // };
     const [open, setopen]= useState(false)
     const navigate = useNavigate();
+     const { theme, toggleTheme } = useTheme();
 
 
     return(
         <div className="relative">
-        <div className="flex justify-between  py-5 items-center px-10 fixed top-0 left-0 w-full z-50 bg-black/5   ">
+        <div className="flex justify-between  py-5 items-center px-10 fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-lg ">
     <div className="flex gap-2 text-lg sm:text-xl md:text-2xl font-bold " >
         <p className=" text-cyan-600">Hikoo</p>
         <p>Technology</p>
         </div>
+        
+       
         <div className="hidden lg:flex gap-10 text-sm sm:text-base   ">
+             
         <p onClick={() => navigate("/")}
         className="cursor-pointer"
             >Home</p>
@@ -37,13 +43,35 @@ function Navebar(){
         onClick={()=> navigate("/Internship")}
         className="cursor-pointer"
         >internship</p>
-        <p>Contact</p>
+        <p
+         onClick={()=>  {
+        navigate("/Contact")
+        setopen(false)
+    }}
+    className="cursor-pointer"
+        >Contact</p>
+       
         </div>
-        <div className=" hidden lg:flex gap-4 text-sm sm:text-base text-white">
+        
+          
+        <div className=" hidden lg:flex gap-4 text-sm sm:text-base text-white font-semibold">
             {/* <p className="bg-cyan-600 rounded-full px-3 py-2"></p> */}
-        <p className="bg-cyan-600 rounded-full px-3 py-2 ">Get Started</p>
-        <p className="bg-cyan-600 rounded-full px-3 py-2 ">Request a Quote</p>
+        <p 
+         onClick={toggleTheme}
+        
+         
+        
+        className="bg-cyan-600 rounded-full px-3 py-2 cursor-pointer text-sm sm:text-base ">
+            { theme === "dark" ? "Light Mode" : "Dark Mode" }
+           </p>
+        <p 
+        onClick={()=>{
+            navigate("/Contact")
+            setopen(false)
+        }}
+        className="bg-cyan-600 rounded-full px-3 py-2 cursor-pointer text-sm sm:text-base">Request a Quote</p>
         </div>
+       
 
 <button  className="lg:hidden"
  onClick={()=> setopen(!open)}>
@@ -51,7 +79,7 @@ function Navebar(){
 </button>
 
 {open &&(
-     <div className="lg:hidden mt-4 flex flex-col gap-8 absolute top-[80px] w-screen left-0 overflow-y-auto  h-[calc(100vh-100px)] text-center bg-black/10 ">
+     <div className="lg:hidden mt-4 flex flex-col gap-8 absolute top-[80px] w-screen left-0 overflow-y-auto  h-[calc(100vh-100px)] text-center bg-black/10 backdrop-blur-2xl   z-50">
           <p 
            onClick={() => {
             navigate("/")
@@ -60,35 +88,54 @@ function Navebar(){
            
            }
            
-  className="cursor-pointer">Home</p>
+  className="cursor-pointer font-semibold">Home</p>
           <p 
           onClick={() => {
             navigate("/About")
             setopen(false)
         }}
-      className="cursor-pointer" >About</p>
+      className="cursor-pointer font-semibold " >About</p>
           <p
            onClick={()=> {
             navigate("/Service")
             setopen(false)
         }}
-          >Servics</p>
+         className="cursor-pointer font-semibold " 
+          >Services</p>
           <p
         onClick={()=> {
             navigate("/Career")
             setopen(false)
         }}
-        className="cursor-pointer"
+        className="cursor-pointer font-semibold "
         >Career</p>
         <p onClick={()=>  {
         navigate("/Internship")
         setopen(false)
     }}
-        className="cursor-pointer"
+        className="cursor-pointer  font-semibold  "
         >internship</p>
-          <p >Contact</p>
-          <button className= "  bg-cyan-600 rounded-full px-3 py-2 " > Get Started</button>
-          <button  className="bg-cyan-600 rounded-full px-3 py-2 ">Request a Quote</button>
+          <p 
+          onClick={()=>  {
+        navigate("/Contact")
+        setopen(false)
+    }}
+    className="cursor-pointer font-semibold"
+          >Contact</p>
+           <p 
+         onClick={toggleTheme}
+        
+         
+        
+        className="bg-cyan-600 rounded-full px-3 py-2 cursor-pointer  font-semibold ">
+            { theme === "dark" ? "LIGHT MODE" : "DARK MODE" }
+           </p>
+         <p 
+        onClick={()=>{
+            navigate("/Contact")
+            setopen(false)
+        }}
+        className="bg-cyan-600 rounded-full px-3 py-2  font-semibold ">Request a Quote</p>
         </div>
 )}
 

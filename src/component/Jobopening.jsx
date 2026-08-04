@@ -5,7 +5,7 @@ const Jobopening = [
     location: "Madurai",
     type: "Full-Time",
     experience: "0–2 Years",
-    skills: ["React", "JavaScript", "Tailwind CSS"],
+    skills: ["React", "JS", "Tailwind CSS"],
     description:
       "Build responsive web applications using React.js and modern frontend technologies.",
     apply: "Apply Now",
@@ -49,7 +49,7 @@ const Jobopening = [
     location: "Madurai",
     type: "Full-Time",
     experience: "0–2 Years",
-    skills: ["Figma", "Adobe XD", "Wireframing"],
+    skills: ["Figma", "XD", "Wireframing"],
     description:
       "Create intuitive user experiences through research, wireframes, and modern UI design.",
     apply: "Apply Now",
@@ -60,7 +60,7 @@ const Jobopening = [
     location: "Madurai",
     type: "Full-Time",
     experience: "0–2 Years",
-    skills: ["Manual Testing", "Selenium", "JIRA"],
+    skills: ["MT", "Selenium", "JIRA"],
     description:
       "Ensure software quality through testing, automation, and defect tracking.",
     apply: "Apply Now",
@@ -105,7 +105,7 @@ const Jobopening = [
     type: "Full-Time",
     experience: "1–3 Years",
     skills: ["Python", 
-        "TensorFlow", "Machine Learning"],
+        "TensorFlow", "ML"],
     description:
       "Develop intelligent AI and machine learning models for real-world applications.",
     apply: "Apply Now",
