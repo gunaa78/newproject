@@ -127,7 +127,7 @@ function Navebar(){
         
          
         
-        className="bg-cyan-600 rounded-full px-3 py-2 cursor-pointer  font-semibold ">
+        className="bg-cyan-600 rounded-full px-3 py-2 cursor-pointer  font-semibold text-white ">
             { theme === "dark" ? "LIGHT MODE" : "DARK MODE" }
            </p>
          <p 
@@ -135,7 +135,7 @@ function Navebar(){
             navigate("/Contact")
             setopen(false)
         }}
-        className="bg-cyan-600 rounded-full px-3 py-2  font-semibold ">Request a Quote</p>
+        className="bg-cyan-600 rounded-full px-3 py-2  font-semibold text-white ">Request a Quote</p>
         </div>
 )}
 
