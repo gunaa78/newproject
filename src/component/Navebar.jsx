@@ -123,7 +123,10 @@ function Navebar(){
     className="cursor-pointer font-semibold text-white"
           >Contact</p>
            <p 
-         onClick={toggleTheme}
+         onClick={() => {
+  toggleTheme();
+  setopen(false);
+}}
         
          
         
