@@ -1,7 +1,56 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import internshipBenefits from "./internshipBenefits";
+import {  useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { useMotionValueEvent } from "framer-motion";
+import { useEffect } from "react";
+
+
 function Internship(){
-    const [Showform, setShowform]= useState(false)
+  useEffect(() => {
+    document.title = "Internship";
+  }, []);
+
+  const [Showform, setShowform]= useState(false)
+
+     const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: {
+    opacity: 0,
+    x: -50,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
+const timelineRef = useRef(null);
+const { scrollYProgress } = useScroll({
+  target: timelineRef,
+  offset: ["start center", "end center"],
+});
+
+const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+
+const activeIndex = useTransform(scrollYProgress, (value) =>
+  Math.round(value * (internshipBenefits.length - 1))
+);
+const [currentIndex, setCurrentIndex] = useState(0);
+
+useMotionValueEvent(activeIndex, "change", (latest) => {
+  setCurrentIndex(latest);
+});
     return(
         <div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl  font-bold pt-40 md:pt-60  text-cyan-600  " >Build Your Future</h3>
@@ -445,15 +494,17 @@ function Internship(){
     Gain practical experience, develop your skills, and grow in a professional environment.
   </p>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+  <div  variants={container}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
 
    
     <motion.div  whileHover={{ y: -10 }}   transition={{
-    duration: 0.8,         
+           
     hover: { duration: 0.3 }
   }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+  variants={item}
  
   viewport={{ once: true }} className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl  font-semibold text-cyan-600">
@@ -467,11 +518,10 @@ function Internship(){
 
    
     <motion.div  whileHover={{ y: -10 }}   transition={{
-    duration: 0.8,         
+           
     hover: { duration: 0.3 }
   }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+  variants={item}
  
   viewport={{ once: true }}  className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className=" font-semibold text-cyan-600 text-lg md:text-xl">
@@ -485,11 +535,10 @@ function Internship(){
 
    
     <motion.div  whileHover={{ y: -10 }}  transition={{
-    duration: 0.8,         
+           
     hover: { duration: 0.3 }
   }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+  variants={item}
  
   viewport={{ once: true }}  className="p-6     shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
@@ -503,11 +552,10 @@ function Internship(){
 
    
     <motion.div  whileHover={{ y: -10 }}  transition={{
-    duration: 0.8,         
+           
     hover: { duration: 0.3 }
   }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+   variants={item}
  
   viewport={{ once: true }}  className="p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
@@ -522,11 +570,10 @@ function Internship(){
   
     <motion.div  whileHover={{ y: -10 }}  
      transition={{
-    duration: 0.8,         
+            
     hover: { duration: 0.3 }
   }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+   variants={item}
  
   viewport={{ once: true }}  className="p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
@@ -540,11 +587,10 @@ function Internship(){
 
    
     <motion.div  whileHover={{ y: -10 }}  transition={{
-    duration: 0.8,         
+           
     hover: { duration: 0.3 }
   }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+   variants={item}
  
   viewport={{ once: true }}  className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
       <h3 className="text-lg md:text-xl font-semibold text-cyan-600">
@@ -567,148 +613,47 @@ function Internship(){
   </h2> 
   <p className=" pt-4 text-sm sm:text-base lg:text-lg  ">Work on real-world projects and gain practical experience.</p>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-
+  <div ref={timelineRef} className="relative pl-16 pt-10 mt-10">
+ 
+ 
+ <div className="absolute left-6 top-0 h-full w-[2px] bg-gray-300" />
+ 
+ 
+ <motion.div
+   style={{ scaleY: lineScale }}
+   className="absolute left-6 top-0 h-full w-[2px] bg-cyan-600 origin-top"
+ />
+ 
+ 
+ 
+   {internshipBenefits.map((step, index) => (
+     <div key={step.id} className="relative mb-16">
+       <div
+   className={`absolute -left-[52px] top-2 w-5 h-5 rounded-full border-4 transition-all duration-300
+     ${
+       currentIndex === index
+         ? "bg-cyan-500 border-cyan-500 shadow-[0_0_25px_rgba(8,145,178,0.9)] scale-125"
+         : "bg-gray-400 border-white"
+     }`}
+ />
+ 
+       <h3 className="text-lg font-semibold">
+         {step.title}
+       </h3>
+ 
+       <p className="text-gray-600">
+         {step.description}
+       </p>
+     </div>
+   ))}
+ </div>
+ </div>
    
-    <motion.div  whileHover={{ y: -10 }}   transition={{
-    duration: 0.8,         
-    hover: { duration: 0.3 }
-  }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
  
-  viewport={{ once: true }}  className="p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
-      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12  rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
-        01
-      </span>
-
-      <h3 className="mt-5 font-semibold text-cyan-600 text-lg md:text-xl ">
-        Hands-on Experience
-      </h3>
-
-      <p className="mt-3 text-sm md:text-base">
-        Work on real-world projects.
-      </p>
-    </motion.div>
 
 
-    
-    <motion.div  whileHover={{ y: -10 }}   transition={{
-    duration: 0.8,         
-    hover: { duration: 0.3 }
-  }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
- 
-  viewport={{ once: true }}  className="p-6  shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
-      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
-        02
-      </span>
-
-      <h3 className="mt-5 text-lg md:text-xl font-semibold   text-cyan-600">
-        Expert Mentorship
-      </h3>
-
-      <p className="mt-3 text-sm md:text-base">
-        Learn from experienced professionals.
-      </p>
-    </motion.div>
 
 
-  
-    <motion.div  whileHover={{ y: -10 }}   transition={{
-    duration: 0.8,         
-    hover: { duration: 0.3 }
-  }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
- 
-  viewport={{ once: true }}  className="p-6    shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
-      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
-        03
-      </span>
-
-<h3 className="mt-5 text-lg md:text-xl font-semibold  text-cyan-600">
-        Skill Development
-      </h3>
-
-      <p className="mt-3 text-sm md:text-base">
-        Improve your technical and professional skills.
-      </p>
-    </motion.div>
-
-
-  
-    <motion.div  whileHover={{ y: -10 }}  transition={{
-    duration: 0.8,         
-    hover: { duration: 0.3 }
-  }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
- 
-  viewport={{ once: true }}  className="p-6     shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
-      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
-        04
-      </span>
-
-      <h3 className="mt-5 text-lg md:text-xl font-semibold  text-cyan-600">
-        Internship Certificate
-      </h3>
-
-      <p className="mt-3 text-sm md:text-base">
-        Receive a certificate after completion.
-      </p>
-    </motion.div>
-
-
-  
-    <motion.div  whileHover={{ y: -10 }}  transition={{
-    duration: 0.8,         
-    hover: { duration: 0.3 }
-  }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
- 
-  viewport={{ once: true }}  className="p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
-      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl ">
-        05
-      </span>
-
-      <h3 className="mt-5 text-lg md:text-xl font-semibold  text-cyan-600">
-        Career Guidance
-      </h3>
-
-      <p className="mt-3 text-sm md:text-base">
-        Get guidance for your next career step.
-      </p>
-    </motion.div>
-
-
-  
-    <motion.div  whileHover={{ y: -10 }}  transition={{
-    duration: 0.8,         
-    hover: { duration: 0.3 }
-  }}
-   initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
- 
-  viewport={{ once: true }}  className="p-6   shadow-md hover:shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl">
-      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-500 text-white font-bold text-sm md:text-xl">
-        06
-      </span>
-
-      <h3 className="mt-5 text-lg md:text-xl font-semibold text-cyan-600">
-        Professional Experience
-      </h3>
-
-      <p className="mt-3 text-sm md:text-base">
-        Experience working in a real IT environment.
-      </p>
-    </motion.div>
-
-  </div>
-
-</div>
 
 
 <div>

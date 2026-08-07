@@ -3,12 +3,16 @@ import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 
+import { motion } from "framer-motion";
+
+
 function Navebar(){
 //     const handleclick = () => {
 //   document.getElementById("find").scrollIntoView({
 //     behavior: "smooth",
 //   });
 // };
+
     const [open, setopen]= useState(false)
     const navigate = useNavigate();
      const { theme, toggleTheme } = useTheme();
@@ -72,14 +76,17 @@ function Navebar(){
         className="bg-cyan-600 rounded-full px-3 py-2 cursor-pointer text-sm sm:text-base">Request a Quote</p>
         </div>
        
+       
 
 <button  className="lg:hidden"
  onClick={()=> setopen(!open)}>
     {open ? "☰" : " ☰"}
 </button>
 
+
 {open &&(
-     <div className="lg:hidden mt-4 flex flex-col gap-8 absolute top-[80px] w-screen left-0 overflow-y-auto  h-[calc(100vh-100px)] text-center bg-black/70 backdrop-blur-xl   z-50">
+
+     <motion.div initial={{ opacity: 0, y: -50 }}  animate={{ opacity: 1, y: 0 }}   transition={{ duration: 0.6 }} className="lg:hidden mt-4 flex flex-col gap-8 absolute top-[80px] w-screen left-0 overflow-y-auto  h-[calc(100vh-100px)] text-center bg-black/70 backdrop-blur-xl   z-50">
           <p 
            onClick={() => {
             navigate("/")
@@ -139,7 +146,8 @@ function Navebar(){
             setopen(false)
         }}
         className="bg-cyan-600 rounded-full px-3 py-2  font-semibold text-white ">Request a Quote</p>
-        </div>
+     </motion.div>  
+       
 )}
 
 
@@ -147,9 +155,14 @@ function Navebar(){
 
 
 
+ </div>
+ </div>
+ 
     
-    </div>
-    </div>
+   
+   
+
+    
     )
 }
 

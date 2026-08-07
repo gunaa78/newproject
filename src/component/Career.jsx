@@ -2,8 +2,57 @@ import Careerdata from "../component/Careerdata"
 import Jobopening from "../component/Jobopening"
 import { useState } from "react";
 import { motion } from "framer-motion";
+import RecruitmentProcess from "../component/RecruitmentProcess";
+import {  useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { useMotionValueEvent } from "framer-motion";
+import { useEffect } from "react";
+
+
+
 function Career(){
+  useEffect(() => {
+    document.title = "Career";
+  }, []);
   const [showPopup, setShowPopup] = useState(false);
+  const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: {
+    opacity: 0,
+    y: -50,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+const timelineRef = useRef(null);
+
+const { scrollYProgress } = useScroll({
+  target: timelineRef,
+  offset: ["start center", "end center"],
+});
+
+const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+
+const activeIndex = useTransform(scrollYProgress, (value) =>
+  Math.round(value * (RecruitmentProcess.length - 1))
+);
+const [currentIndex, setCurrentIndex] = useState(0);
+
+useMotionValueEvent(activeIndex, "change", (latest) => {
+  setCurrentIndex(latest);
+});
     return(
         <>
         <div className=" space-y-8" >
@@ -225,79 +274,52 @@ function Career(){
       Recruitment Process
     </h2>
 
-        <div className="flex items-center gap-5 mb-8 pt-10 ">
-    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl  font-bold shrink-0">
-      1
-    </div>
-    <div>
-      <h3 className="text-lg md:text-xl font-semibold ">Application Submission</h3>
-      <p className="text-sm md:text-base ">
-        Submit your resume through our careers page.
+  <div ref={timelineRef} className="relative pl-16 pt-10 mt-10">
+
+ {/* Gray Line */}
+<div className="absolute left-6 top-0 h-full w-[2px] bg-gray-300" />
+
+{/* Blue Progress Line */}
+<motion.div
+  style={{ scaleY: lineScale }}
+  className="absolute left-6 top-0 h-full w-[2px] bg-cyan-600 origin-top"
+/>
+
+
+
+  {RecruitmentProcess.map((step, index) => (
+    <div key={step.id} className="relative mb-16">
+      <div
+  className={`absolute -left-[52px] top-2 w-5 h-5 rounded-full border-4 transition-all duration-300
+    ${
+      currentIndex === index
+        ? "bg-cyan-500 border-cyan-500 shadow-[0_0_50px_rgba(8,145,178,0.9)] scale-125"
+        : "bg-gray-400 border-white"
+    }`}
+/>
+
+      <h3 className="text-lg font-semibold">
+        {step.title}
+      </h3>
+
+      <p className="text-gray-600">
+        {step.description}
       </p>
     </div>
-  </div>
-
- 
-  <div className="flex items-center gap-5 mb-8">
-    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
-      2
-    </div>
-    <div>
-      <h3 className="text-lg md:text-xl  font-semibold ">Resume Screening</h3>
-      <p className="text-sm md:text-base">
-        Our recruiters review your qualifications.
-      </p>
-    </div>
-  </div>
-
- 
-  <div className="flex items-center gap-5 mb-8">
-    <div className="w-10 h-10 md:w-12 md:h-12  rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
-      3
-    </div>
-    <div>
-      <h3 className="text-lg md:text-xl font-semibold ">Technical Assessment</h3>
-      <p className="text-sm md:text-base">
-        Complete an online coding assessment.
-      </p>
-    </div>
-  </div>
-
+  ))}
+</div>
   
-  <div className="flex items-center gap-5 mb-8">
-    <div className="w-10 h-10 md:w-12 md:h-12  rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
-      4
-    </div>
-    <div>
-      <h3 className="text-lg md:text-xl  font-semibold ">Technical Interview</h3>
-      <p className="text-sm md:text-base">
-        Discuss your technical skills with our engineering team.
-      </p>
-    </div>
-  </div>
 
- 
-  <div className="flex items-center gap-5 ">
-    <div className="w-10 h-10 md:w-12 md:h-12  rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
-      5
-    </div>
-    <div>
-      <h3 className="text-lg md:text-xl  font-semibold ">HR Interview</h3>
-      <p className="text-sm md:text-base">
-        Final discussion and offer.
-      </p>
-    </div>
-  </div>
 
     <h2 className=" pt-40 text-xl sm:text-2xl lg:text-3xl text-cyan-600 font-bold">
       Employee Benefits
     </h2>
 
     
-<div className="pt-10 space-y-8">
+<motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="pt-10 space-y-8">
 
  
-  <div className="flex items-start gap-5">
+  <motion.div  variants={item}  className="flex items-start gap-5">
     <div className="w-10 h-10 md:w-12 md:h-12  rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl  font-bold shrink-0">
       1
     </div>
@@ -311,10 +333,10 @@ function Career(){
         experience, and performance.
       </p>
     </div>
-  </div>
+  </motion.div>
 
   
-  <div className="flex items-start gap-5">
+  <motion.div  variants={item}  className="flex items-start gap-5">
     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
       2
     </div>
@@ -327,10 +349,10 @@ function Career(){
         Comprehensive health insurance to support your well-being and peace of mind.
       </p>
     </div>
-  </div>
+  </motion.div>
 
   
-  <div className="flex items-start gap-5">
+  <motion.div  variants={item}  className="flex items-start gap-5">
     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
       3
     </div>
@@ -343,10 +365,10 @@ function Career(){
         Enjoy paid vacation, holidays, and personal leave to maintain a healthy work-life balance.
       </p>
     </div>
-  </div>
+  </motion.div>
 
   
-  <div className="flex items-start gap-5">
+  <motion.div  variants={item}  className="flex items-start gap-5">
     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
       4
     </div>
@@ -359,10 +381,10 @@ function Career(){
         Access training programs, workshops, and certification opportunities to enhance your skills.
       </p>
     </div>
-  </div>
+  </motion.div>
 
   {/* 5 */}
-  <div className="flex items-start gap-5">
+  <motion.div  variants={item}  className="flex items-start gap-5">
     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
       5
     </div>
@@ -375,10 +397,10 @@ function Career(){
         Grow your career through mentorship, challenging projects, and leadership opportunities.
       </p>
     </div>
-  </div>
+  </motion.div>
 
   
-  <div className="flex items-start gap-5">
+  <motion.div  variants={item}  className="flex items-start gap-5">
     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-600 text-white flex items-center justify-center text-sm md:text-xl font-bold shrink-0">
       6
     </div>
@@ -391,9 +413,12 @@ function Career(){
         Work in a supportive and flexible environment that encourages collaboration, innovation, and productivity.
       </p>
     </div>
-  </div>
+    </motion.div>
+  
 
-</div>
+</motion.div>
+
+
  {/* <h3 className=" pt-40 text-xl sm:text-2xl lg:text-3xl text-cyan-600 font-bold">Application Form</h3> */}
 
 {/* <div className=" grid grid-cols-2 " >

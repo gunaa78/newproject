@@ -1,7 +1,11 @@
 import Services from "../component/Services";
+import { useEffect } from "react";
 
 import { motion } from "framer-motion";
 function Service(){
+  useEffect(() => {
+    document.title = "Service";
+  }, []);
     return(
         <div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl  pt-40 lg:pt-60 text-cyan-600 font-bold">

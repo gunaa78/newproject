@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 function Home(){
+    useEffect(() => {
+    document.title = "Home";
+   
+  }, []);
+
     const navigate = useNavigate();
     return(
         <motion.div

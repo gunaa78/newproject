@@ -1,7 +1,12 @@
 import { FaCode } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 function About(){
+  useEffect(() => {
+    document.title = "About";
+  }, []);
+
 
 
 return(
