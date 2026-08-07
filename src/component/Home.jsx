@@ -4,8 +4,16 @@ import { useEffect } from "react";
 function Home(){
     useEffect(() => {
     document.title = "Home";
-   
+
+     document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        "Hikoo Technology provides innovative web development, mobile app development, UI/UX design, cloud solutions, and IT consulting services."
+      );
   }, []);
+   
+
 
     const navigate = useNavigate();
     return(
