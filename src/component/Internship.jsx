@@ -662,7 +662,7 @@ useMotionValueEvent(activeIndex, "change", (latest) => {
         Who Can Apply?
     </h2>
 </div>
-<ul className=" list-disc list-inside text-sm md:text-base lg:text-xl space-y-4 pt-10 ">
+<ul className=" list-disc list-inside text-base lg:text-xl space-y-4 pt-10 ">
 <li>Computer Science or related degrees</li>
 <li>Recent graduates</li>
 <li> Freshers interested in technology</li>
