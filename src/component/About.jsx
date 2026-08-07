@@ -5,6 +5,12 @@ import { useEffect } from "react";
 function About(){
   useEffect(() => {
     document.title = "About";
+    document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute(
+      "content",
+      "Learn about Hikoo Technology, our mission, vision, expert team, and commitment to delivering innovative web, mobile, cloud, and software development solutions."
+    );
   }, []);
 
 

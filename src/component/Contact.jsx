@@ -3,6 +3,12 @@ import { useEffect } from "react";
 function Contact(){
   useEffect(() => {
     document.title = "Contact";
+    document
+  .querySelector('meta[name="description"]')
+  ?.setAttribute(
+    "content",
+    "Contact Hikoo Technology for software development, web solutions, and digital services. Get in touch with our team to discuss your project ideas and build innovative technology solutions."
+  );
   }, []);
     return(
         <div className="pt-40 ">

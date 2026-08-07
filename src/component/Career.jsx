@@ -13,6 +13,12 @@ import { useEffect } from "react";
 function Career(){
   useEffect(() => {
     document.title = "Career";
+    document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute(
+      "content",
+      "Explore exciting career opportunities at Hikoo Technology. Join our team of talented professionals and build innovative software, web, and mobile solutions while advancing your career."
+    );
   }, []);
   const [showPopup, setShowPopup] = useState(false);
   const container = {

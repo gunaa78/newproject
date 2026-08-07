@@ -10,6 +10,12 @@ import { useEffect } from "react";
 function Internship(){
   useEffect(() => {
     document.title = "Internship";
+     document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute(
+      "content",
+      "Kickstart your career with Hikoo Technology's internship program. Gain hands-on experience in React.js, Node.js, Python, Full Stack Development, UI/UX Design, and real-world software projects."
+    );
   }, []);
 
   const [Showform, setShowform]= useState(false)

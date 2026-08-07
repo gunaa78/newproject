@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 function Home(){
     useEffect(() => {
-    document.title = "Hikoo Technology | Home";
+    document.title = "Home";
 
     document
       .querySelector('meta[name="description"]')

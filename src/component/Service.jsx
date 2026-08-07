@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 function Service(){
   useEffect(() => {
     document.title = "Service";
+    document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute(
+      "content",
+      "Explore Hikoo Technology's professional services including web development, mobile app development, UI/UX design, cloud solutions, software development, and IT consulting tailored to your business needs."
+    );
   }, []);
     return(
         <div>
