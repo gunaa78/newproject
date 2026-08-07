@@ -3,16 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 function Home(){
     useEffect(() => {
-    document.title = "Home";
+    document.title = "Hikoo Technology | Home";
+
     document
-    .querySelector('meta[name="description"]')
-    ?.setAttribute(
-      "content",
-      "Hikoo Technology provides web development, mobile app development, UI/UX design, cloud solutions, and IT consulting services."
-    );
-   
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        "Hikoo Technology provides web development, mobile app development, UI/UX design, cloud solutions, and IT consulting services."
+      );
   }, []);
-   
 
 
     const navigate = useNavigate();
